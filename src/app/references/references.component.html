@@ -1,0 +1,96 @@
+<br/>
+<div class="container">
+    <div class="row">
+        
+        <div class="col s6 m6">
+          <div class="card">
+            <div class="card-content">
+                <h3>References</h3>
+              <span class="card-title">Your References</span>
+              <br/>
+              <div class="row">
+                <form class="col s12" #refForm="ngForm" (ngSubmit)="onSubmit(refForm)">
+                    <input type="hidden" class="validate"
+                    name="_id" #_id="ngModel" [(ngModel)]="refservice.selectedreference._id"
+                    >
+                    <div class="row">
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="name" #name="ngModel" [(ngModel)]="refservice.selectedreference.name"
+                      required
+                      >
+                      <label for="first_name">Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="designation" #designation="ngModel" [(ngModel)]="refservice.selectedreference.designation"
+                      required
+                      >
+                      <label for="last_name">Designation</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="company" #company="ngModel" [(ngModel)]="refservice.selectedreference.company"
+                      required
+                      >
+                      <label for="first_name">Company</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" class="validate"
+                        name="contact_no" #contact_no="ngModel" [(ngModel)]="refservice.selectedreference.contact_no"
+                        required
+                        >
+                      <label for="last_name">Contact No.</label>
+                    </div>
+                  </div>
+                
+                    <div class="input-field ">
+                        <textarea class="materialize-textarea" id="exampleFormControlTextarea1" rows="5" 
+                        name="contact_email" #contact_email="ngModel" [(ngModel)]="refservice.selectedreference.contact_email" placeholder="contact email address"></textarea>
+                        <label>
+                            Contact Email:
+                        </label>
+                    </div>
+                    <div class="input-field ">
+                      <input type="text" class="validate"
+                      name="user_id" #user_id="ngModel" [(ngModel)]="refservice.selectedreference.user_id"
+                      required readonly
+                      >
+                      <label for="last_name">User Id</label>
+                    </div>
+                     
+                  <br/>
+                
+                  <br/>
+                  <button class="btn btn-custom right grey darken-4" type="submit">Save Changes</button>
+                </form>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+
+        <div class="col s6 m6">
+            <table class="responsive-table highlight">
+                <thead>
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Designation </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let ref of refservice.referencesList">
+                    <td>{{ref.name}}</td>
+                    <td>{{ref.company}}</td>
+                    <td>
+                        <a class="action-btn" (click)="onEdit(ref)">
+                            <i class="material-icons">edit</i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+      </div>
+</div>

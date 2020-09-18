@@ -1,0 +1,96 @@
+<br/>
+<div class="container">
+    <div class="row">
+        
+        <div class="col s6 m6">
+          <div class="card">
+            <div class="card-content">
+                <h3>User Education</h3>
+              <span class="card-title">Your Education</span>
+              <br/>
+              <div class="row">
+                <form class="col s12" #educationForm="ngForm" (ngSubmit)="onSubmit(educationForm)">
+                    <input type="hidden" class="validate"
+                    name="_id" #_id="ngModel" [(ngModel)]="eduServices.selectedEducation._id"
+                    >
+                    <div class="row">
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="institute_name" #institute_name="ngModel" [(ngModel)]="eduServices.selectedEducation.institute_name"
+                      required
+                      >
+                      <label for="first_name">Institute Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="program" #program="ngModel" [(ngModel)]="eduServices.selectedEducation.program"
+                      required
+                      >
+                      <label for="last_name">Program</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="start_date" #start_date="ngModel" [(ngModel)]="eduServices.selectedEducation.start_date"
+                      required
+                      >
+                      <label for="first_name">Start Date</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" class="validate"
+                        name="end_date" #end_date="ngModel" [(ngModel)]="eduServices.selectedEducation.end_date"
+                        required
+                        >
+                      <label for="last_name">End Date</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="field" #field="ngModel" [(ngModel)]="eduServices.selectedEducation.field"
+                      required
+                      >
+                      <label for="first_name">Field</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="user_id" #user_id="ngModel" [(ngModel)]="eduServices.selectedEducation.user_id"
+                      required readonly
+                      >
+                      <label for="last_name">User Id</label>
+                    </div>
+                  </div>     
+                  <br/>
+                
+                  <br/>
+                  <button class="btn btn-custom right grey darken-4" type="submit">Save Changes</button>
+                </form>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+
+        <div class="col s6 m6">
+            <table class="responsive-table highlight">
+                <thead>
+                    <tr>
+                        <th>Institute Name</th>
+                        <th>Program </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let edu of eduServices.educations">
+                    <td>{{edu.institute_name}}</td>
+                    <td>{{edu.program}}</td>
+                    <td>
+                        <a class="action-btn" (click)="onEdit(edu)">
+                            <i class="material-icons">edit</i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,96 @@
+<br/>
+<div class="container">
+    <div class="row">
+        
+        <div class="col s6 m6">
+          <div class="card">
+            <div class="card-content">
+                <h3>User Work Experience</h3>
+              <span class="card-title">Your work experience</span>
+              <br/>
+              <div class="row">
+                <form class="col s12" #workexpForm="ngForm" (ngSubmit)="onSubmit(workexpForm)">
+                    <input type="hidden" class="validate"
+                    name="_id" #_id="ngModel" [(ngModel)]="workexpservice.selectedWorkexp._id"
+                    >
+                    <div class="row">
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="company_name" #company_name="ngModel" [(ngModel)]="workexpservice.selectedWorkexp.company_name"
+                      required
+                      >
+                      <label for="first_name">Company Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="designation" #designation="ngModel" [(ngModel)]="workexpservice.selectedWorkexp.designation"
+                      required
+                      >
+                      <label for="last_name">Designation</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="start_date" #start_date="ngModel" [(ngModel)]="workexpservice.selectedWorkexp.start_date"
+                      required
+                      >
+                      <label for="first_name">Start Date</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" class="validate"
+                        name="end_date" #end_date="ngModel" [(ngModel)]="workexpservice.selectedWorkexp.end_date"
+                        required
+                        >
+                      <label for="last_name">End Date</label>
+                    </div>
+                  </div>
+                
+                    <div class="input-field ">
+                        <textarea class="materialize-textarea" id="exampleFormControlTextarea1" rows="5" 
+                        name="responsibilities" #responsibilities="ngModel" [(ngModel)]="workexpservice.selectedWorkexp.responsibilities" placeholder="Your responsibilities"></textarea>
+                        <label>
+                            Responsibilities:
+                        </label>
+                    </div>
+                    <div class="input-field ">
+                      <input type="text" class="validate"
+                      name="user_id" #user_id="ngModel" [(ngModel)]="workexpservice.selectedWorkexp.user_id"
+                      required readonly
+                      >
+                      <label for="last_name">User Id</label>
+                    </div>
+                     
+                  <br/>
+                
+                  <br/>
+                  <button class="btn btn-custom right grey darken-4" type="submit">Save Changes</button>
+                </form>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+
+        <div class="col s6 m6">
+            <table class="responsive-table highlight">
+                <thead>
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Designation </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let exp of workexpservice.expList">
+                    <td>{{exp.company_name}}</td>
+                    <td>{{exp.designation}}</td>
+                    <td>
+                        <a class="action-btn" (click)="onEdit(exp)">
+                            <i class="material-icons">edit</i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+      </div>
+</div>

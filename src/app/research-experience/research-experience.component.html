@@ -1,0 +1,89 @@
+<br/>
+<div class="container">
+    <div class="row">
+        
+        <div class="col s6 m6">
+          <div class="card">
+            <div class="card-content">
+                <h3>User Research Experience</h3>
+              <span class="card-title">Your Research Work</span>
+              <br/>
+              <div class="row">
+                <form class="col s12" #researchexpForm="ngForm" (ngSubmit)="onSubmit(researchexpForm)">
+                    <input type="hidden" class="validate"
+                    name="_id" #_id="ngModel" [(ngModel)]="researchexpservice.selectedResearchexp._id"
+                    >
+                    <div class="row">
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="project_name" #project_name="ngModel" [(ngModel)]="researchexpservice.selectedResearchexp.project_name"
+                      required
+                      >
+                      <label for="first_name">Project Name</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="start_date" #start_date="ngModel" [(ngModel)]="researchexpservice.selectedResearchexp.start_date"
+                      required
+                      >
+                      <label for="first_name">Start Date</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" class="validate"
+                        name="end_date" #end_date="ngModel" [(ngModel)]="researchexpservice.selectedResearchexp.end_date"
+                        required
+                        >
+                      <label for="last_name">End Date</label>
+                    </div>
+                  </div>
+                
+                    <div class="input-field ">
+                        <textarea class="materialize-textarea" id="exampleFormControlTextarea1" rows="5" 
+                        name="research_field" #research_field="ngModel" [(ngModel)]="researchexpservice.selectedResearchexp.research_field" placeholder="Your responsibilities"></textarea>
+                        <label>
+                            Research Field:
+                        </label>
+                    </div>
+                    <div class="input-field ">
+                      <input type="text" class="validate"
+                      name="user_id" #user_id="ngModel" [(ngModel)]="researchexpservice.selectedResearchexp.user_id"
+                      required readonly
+                      >
+                      <label for="last_name">User Id</label>
+                    </div>
+                     
+                  <br/>
+                
+                  <br/>
+                  <button class="btn btn-custom right grey darken-4" type="submit">Save Changes</button>
+                </form>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+
+        <div class="col s6 m6">
+            <table class="responsive-table highlight">
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Research Field </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let exp of researchexpservice.expList">
+                    <td>{{exp.project_name}}</td>
+                    <td>{{exp.research_field}}</td>
+                    <td>
+                        <a class="action-btn" (click)="onEdit(exp)">
+                            <i class="material-icons">edit</i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+      </div>
+</div>

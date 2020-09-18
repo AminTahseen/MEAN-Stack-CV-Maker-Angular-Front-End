@@ -1,0 +1,81 @@
+<div class="container">
+
+    <br/>
+    <h3>Create An Account</h3>
+    <br/>
+
+
+    <div class="row">
+        <form class="col s12" #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+          <div class="row">
+            <div class="input-field col s6">
+              <input type="text" class="validate"
+              name="username" #username="ngModel" [(ngModel)]="userService.selectedUser.username"
+              required
+              >
+              <label for="first_name">Username</label>
+            </div>
+            <div class="input-field col s6">
+              <input type="password" class="validate"
+              name="user_password" #user_password="ngModel" [(ngModel)]="userService.selectedUser.user_password"
+              required
+              #x
+              >
+              <label for="last_name">User Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input type="text" class="validate"
+              name="user_name" #user_name="ngModel" [(ngModel)]="userService.selectedUser.user_name"
+              required
+              >
+              <label for="first_name">Your Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input type="text" class="validate"
+              name="gender" #gender="ngModel" [(ngModel)]="userService.selectedUser.gender"
+              required
+              >
+              <label for="last_name">Gender</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input type="text" class="validate"
+              name="dateOfBirth" #dateOfBirth="ngModel" [(ngModel)]="userService.selectedUser.dateOfBirth"
+              required
+              >
+              <label for="first_name">Date of birth</label>
+            </div>
+            <div class="input-field col s6">
+              <input type="text" class="validate"
+              name="email" #email="ngModel" [(ngModel)]="userService.selectedUser.email"
+              required
+              >
+              <label for="last_name">Email Address</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+                <input type="text" class="validate"
+                name="contact_number" #contact_number="ngModel" [(ngModel)]="userService.selectedUser.contact_number"
+                required
+                >             
+               <label for="email">Contact No.</label>
+            </div>
+          </div>
+
+          <br/>
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in" (click)="x.type=x.type=='password'?'text':'password'"/>
+              <span>Show Password</span>
+            </label>
+          </p>
+          <br/>
+          <button class="btn btn-custom right grey darken-4" type="submit">Create Account</button>
+        </form>
+      </div>
+
+</div>

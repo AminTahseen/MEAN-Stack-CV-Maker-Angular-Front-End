@@ -1,0 +1,48 @@
+<br />
+  <br />
+  <div class="container">
+
+    
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">            
+
+      <div class="card">
+          <h3 style="padding:20px">Contact Us</h3>
+        <div class="card-content">
+     
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" 
+                    name="email" #email="ngModel" [(ngModel)]="contactService.selectedContact.email" placeholder="Enter email address" required>
+                    <label>Email:
+                        <label class="red-text">*</label>
+                    </label>
+                </div>
+            </div>
+            
+            <br/>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea class="materialize-textarea" id="exampleFormControlTextarea1" rows="5" 
+                    name="message" #message="ngModel" [(ngModel)]="contactService.selectedContact.message" placeholder="Your Message"></textarea>
+                    <label>Message:
+                    </label>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="card-action">
+            <button class="btn waves-effect waves-light  grey darken-4" type="submit">Send Us</button>
+
+            &nbsp;
+
+            <button class="btn waves-effect waves-light  grey darken-4" type="button" (click)="resetForm
+            (contactForm)">Reset</button>
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>

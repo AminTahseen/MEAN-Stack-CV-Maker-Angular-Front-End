@@ -1,0 +1,51 @@
+<div class="container">
+    <br/>
+    <form class="col s12" (submit)="onLogin()">
+
+    <div class="card" style="padding: 20px;">
+      <div class="card-content" >
+        <h3>Login Now</h3>
+        <p>Login now to start making your own CV !</p>
+        <br/>
+            <div class="input-field col s12">
+                <div class="input-field">
+                  <input type="text" class="validate"
+                  name="username" [(ngModel)]="username"
+                  required
+                  >
+                  <label for="first_name">Username</label>
+                </div>
+              </div>
+
+              
+                <div class="input-field col s12">
+                <div class="input-field ">
+                  <input type="password" class="validate"
+                  name="user_password" [(ngModel)]="user_password"
+                  #x
+                  required
+                  >
+                  <label for="last_name">User Password</label>
+                </div>
+              </div>
+              <br/>
+
+              <div class="input-field col s12">
+                <p>
+                  <label>
+                    <input type="checkbox" class="filled-in" (click)="x.type=x.type=='password'?'text':'password'"/>
+                    <span>Show Password</span>
+                  </label>
+                </p>
+              </div>
+              
+
+              <div class="input-field col s12">
+                <button class="btn btn-custom right btn-large grey darken-4" type="submit">Login Now</button>  
+              </div>
+
+      </div>
+    </div>
+</form>
+
+</div>

@@ -1,0 +1,72 @@
+<br/>
+<div class="container">
+    <div class="row">
+        
+        <div class="col s6 m6">
+          <div class="card">
+            <div class="card-content">
+                <h3>Curricular Activities & Languages</h3>
+              <span class="card-title">Your curricular activities & languages</span>
+              <br/>
+              <div class="row">
+                <form class="col s12" #extForm="ngForm" (ngSubmit)="onSubmit(extForm)">
+                    <input type="hidden" class="validate"
+                    name="_id" #_id="ngModel" [(ngModel)]="EFService.selectedrextraFields._id"
+                    >
+                    <div class="row">
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="curricular_activities" #curricular_activities="ngModel" [(ngModel)]="EFService.selectedrextraFields.curricular_activities"
+                      required
+                      >
+                      <label for="first_name">Curricular Activities</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input type="text" class="validate"
+                      name="languages" #languages="ngModel" [(ngModel)]="EFService.selectedrextraFields.languages"
+                      required
+                      >
+                      <label for="last_name">Languages</label>
+                    </div>
+                  </div>
+                    <div class="input-field ">
+                      <input type="text" class="validate"
+                      name="user_id" #user_id="ngModel" [(ngModel)]="EFService.selectedrextraFields.user_id"
+                      required readonly
+                      >
+                      <label for="last_name">User Id</label>
+                    </div>
+
+                  <br/>
+                
+                  <br/>
+                  <button class="btn btn-custom right grey darken-4" type="submit">Save Changes</button>
+                </form>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+
+        <div class="col s6 m6">
+            <table class="responsive-table highlight">
+                <thead>
+                    <tr>
+                        <th>Curricular Activities</th>
+                        <th>Languages</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let obj of EFService.extraFieldsList">
+                    <td>{{obj.curricular_activities}}</td>
+                    <td>{{obj.languages}}</td>
+                    <td>
+                        <a class="action-btn" (click)="onEdit(obj)">
+                            <i class="material-icons">edit</i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+      </div>
+</div>

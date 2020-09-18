@@ -1,0 +1,91 @@
+<br/>
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-content">
+              <h4 class="card-title">Curriculumn Vitae (CV)</h4>
+              <br/>
+             <h5><b>User Details</b></h5>
+             <hr/>
+             <div class="row">
+                 <div class="col">
+                    <ul>
+                        <li>Name - {{userService.selectedUser.user_name}}</li>
+                        <li>Email - {{userService.selectedUser.email}}</li>
+                    </ul>
+                 </div>
+                 <div class="col">
+                    <ul>
+                        <li>Contact - {{userService.selectedUser.contact_number}}</li>
+                        <li>Gender - {{userService.selectedUser.gender}}</li>
+                    </ul>
+                </div>
+             </div>
+             <h5><b>Education</b></h5>
+             <hr/>
+             <ul *ngFor="let edu of eduServices.educations">
+                 <div class="row">
+                     <div class="col">
+                        <li>{{edu.institute_name}}</li>
+                        <li>{{edu.program}}</li>  
+                     </div>
+                     <div class="col">
+                        <li>{{edu.start_date}} - {{edu.end_date}}</li>
+                     </div>
+                    </div>
+             </ul>
+             <h5><b>Work Experience</b></h5>
+             <hr/>
+             <ul *ngFor="let exp of workexpservice.expList">
+                 <div class="row">
+                     <div class="col">
+                        <li>{{exp.company_name}}</li>
+                        <li>{{exp.designation}}</li>  
+                     </div>
+                     <div class="col">
+                        <li>{{exp.start_date}} - {{exp.end_date}}</li>
+                     </div>
+                    </div>
+             </ul>
+
+             <h5><b>Research Experience</b></h5>
+             <hr/>
+             <ul *ngFor="let exp of researchexpservice.expList">
+                 <div class="row">
+                     <div class="col">
+                        <li>{{exp.project_name}}</li>
+                        <li>{{exp.research_field}}</li>  
+                     </div>
+                     <div class="col">
+                        <li>{{exp.start_date}} - {{exp.end_date}}</li>
+                     </div>
+                    </div>
+             </ul>
+
+             <h5><b>Extra Curricular Activities & Languages</b></h5>
+             <hr/>
+             <ul *ngFor="let obj of EFService.extraFieldsList">
+                 <div class="row">
+                     <div class="col">
+                        <li>{{obj.curricular_activities}}</li>
+                        <li>{{obj.languages}}</li>  
+                     </div>
+                    </div>
+             </ul>
+
+             <h5><b>References</b></h5>
+             <hr/>
+             <ul *ngFor="let ref of refservice.referencesList">
+                 <div class="row">
+                     <div class="col">
+                        <li>{{ref.name}} | {{ref.company}}</li>
+                     </div>
+                    </div>
+             </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
